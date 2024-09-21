@@ -1,0 +1,40 @@
+<code_scheme name="Project copy" version="173">
+  <TypeScriptCodeStyleSettings version="0">
+    <option name="USE_DOUBLE_QUOTES" value="false" />
+    <option name="FORCE_QUOTE_STYLE" value="true" />
+    <option name="ENFORCE_TRAILING_COMMA" value="Remove" />
+  </TypeScriptCodeStyleSettings>
+  <codeStyleSettings language="TypeScript">
+    <indentOptions>
+      <option name="INDENT_SIZE" value="2" />
+      <option name="CONTINUATION_INDENT_SIZE" value="2" />
+      <option name="TAB_SIZE" value="2" />
+    </indentOptions>
+  </codeStyleSettings>
+  <codeStyleSettings language="JavaScript">
+    <indentOptions>
+      <option name="INDENT_SIZE" value="2" />
+      <option name="CONTINUATION_INDENT_SIZE" value="2" />
+      <option name="TAB_SIZE" value="2" />
+    </indentOptions>
+    <option name="USE_SEMICOLON_AFTER_STATEMENT" value="true" />
+    <option name="USE_DOUBLE_QUOTES" value="false" />
+  </codeStyleSettings>
+  <codeStyleSettings language="JSX">
+    <indentOptions>
+      <option name="INDENT_SIZE" value="2" />
+      <option name="CONTINUATION_INDENT_SIZE" value="2" />
+      <option name="TAB_SIZE" value="2" />
+    </indentOptions>
+    <option name="USE_SEMICOLON_AFTER_STATEMENT" value="true" />
+    <option name="USE_DOUBLE_QUOTES" value="false" />
+  </codeStyleSettings>
+  <codeStyleSettings language="typescript">
+    <indentOptions>
+      <option name="INDENT_SIZE" value="2" />
+      <option name="CONTINUATION_INDENT_SIZE" value="2" />
+      <option name="TAB_SIZE" value="2" />
+    </indentOptions>
+    <option name="USE_SEMICOLON_AFTER_STATEMENT" value="true" />
+  </codeStyleSettings>
+</code_scheme>

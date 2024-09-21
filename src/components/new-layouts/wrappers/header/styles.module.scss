@@ -1,0 +1,33 @@
+@import "@/assets/styles/templates";
+
+.header {
+	@include new-flex-gap(60px);
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	max-width: 1000px;
+	align-self: center;
+	top: 12px;
+	position: fixed;
+	height: 66px;
+	border-radius: 12px;
+
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+	background: rgba(235, 235, 241, .4);
+	padding: 12px 24px ;
+
+	.logo {
+		@extend %new-h3;
+		cursor: pointer;
+
+		span {
+			@extend %new-h3;
+			color: var(--blue-default);
+
+	  }
+	}
+	.navigation {
+		@include new-flex-gap(32px);
+	}
+}

@@ -1,0 +1,54 @@
+@import '@/assets/styles/templates.scss';
+
+.popover {
+  @include new-flex-col-gap(24px);
+  position: relative;
+
+  max-width: 450px;
+  width: 100%;
+  padding: 16px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    .title {
+      color: var(--grey-default);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+    }
+
+    svg {
+      cursor: pointer;
+
+    }
+  }
+}
+
+.description {
+	font-size: 16px;
+	font-weight: 400;
+
+	color: var(--grey-dark);
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.grey path {
+  fill: var(--grey-default);
+}
+
+.blue path {
+  fill: var(--blue-default);
+}

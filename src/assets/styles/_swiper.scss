@@ -1,0 +1,30 @@
+@import '@/assets/styles/templates.scss';
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 36px !important;
+  height: 36px!important;
+  border-radius: 50%;
+  background-color: var(--c_blue);
+
+  &:after {
+    color: var(--c_white-text);
+    font-size: 20px !important;
+  }
+}
+
+.swiper-button-next {
+  opacity: 0.5;
+  padding-left: 3px;
+  margin-right: -10px;
+}
+
+.swiper-button-prev {
+  opacity: 0.5;
+  padding-right: 3px;
+  margin-left: -10px;
+}
+
+.swiper-button-disabled {
+  display: none !important;
+}

@@ -1,0 +1,42 @@
+@import '@/assets/styles/templates';
+
+.container{
+  @include new-flex-col-gap(8px);
+
+  span{
+    color: var(--c_black);
+    line-height: 20px;
+  }
+}
+
+.wrapper {
+  box-sizing: border-box;
+  width: 100%;
+
+  border: 1px solid var(--c_grey);
+  background: var(--c_white-all);
+  border-radius: $br_default;
+  max-height: 216px;
+
+  * {
+    margin: 0;
+  }
+}
+.editor {
+  position: relative;
+  z-index: 0;
+  margin: 0;
+  padding: 12px 15px;
+
+  min-height: 216px;
+  max-height: 216px;
+
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

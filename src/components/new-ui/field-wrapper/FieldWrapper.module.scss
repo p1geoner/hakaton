@@ -1,0 +1,16 @@
+@import "src/assets/styles/templates";
+
+.fieldWrapper {
+	@include new-flex-col-gap(8px);
+	width: 100%;
+
+	.text {
+		width: max-content;
+		color: var(--grey-dark);
+		font-family: var(--font-family);
+
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 20px;
+	}
+}

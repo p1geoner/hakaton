@@ -1,0 +1,183 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"prettier",
+		"next"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react",
+		"react-hooks",
+		"@typescript-eslint",
+		"prettier",
+		"import",
+		"unused-imports"
+	],
+	"rules": {
+		"prettier/prettier": [
+			"warn",
+			{
+				"endOfLine": "auto"
+			}
+		],
+		"import/no-internal-modules": "off",
+		"@typescript-eslint/no-unused-vars": "off",
+		"unused-imports/no-unused-imports": "error",
+		"unused-imports/no-unused-vars": [
+			"warn",
+			{
+				"vars": "all",
+				"varsIgnorePattern": "^_",
+				"args": "after-used",
+				"argsIgnorePattern": "^_"
+			}
+		],
+		"react/react-in-jsx-scope": "off",
+		"spaced-comment": [
+			"warn",
+			"always",
+			{
+				"markers": ["/"]
+			}
+		],
+		"quotes": ["warn", "single"],
+		"no-duplicate-imports": "warn",
+		"semi": 2,
+		"no-trailing-spaces": "off",
+		"react/display-name": "off",
+		"import/order": [
+			"warn",
+			{
+				"groups": [
+					"builtin",
+					"external",
+					"sibling",
+					"parent",
+					"internal"
+				],
+				"pathGroups": [
+					{
+						"pattern": "@/config/**",
+						"group": "internal",
+						"position": "after"
+					},
+					{
+						"pattern": "@/data/**",
+						"group": "internal",
+						"position": "after"
+					},
+					{
+						"pattern": "./types/**",
+						"group": "internal",
+						"position": "after"
+					},
+					{
+						"pattern": "./types",
+						"group": "internal",
+						"position": "after"
+					},
+					{
+						"pattern": "./utils",
+						"group": "internal",
+						"position": "after"
+					},
+					{
+						"pattern": "@/assets/**",
+						"group": "internal",
+						"position": "after"
+					},
+					{
+						"pattern": "*/**/*.svg",
+						"group": "internal",
+						"position": "after"
+					},
+					{
+						"pattern": "./**.module.scss",
+						"group": "internal",
+						"position": "after"
+					},
+					{
+						"pattern": "./**",
+						"group": "sibling",
+						"position": "before"
+					},
+					{
+						"pattern": "../**",
+						"group": "parent",
+						"position": "before"
+					},
+					{
+						"pattern": "@/app/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "@/components/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "@/widgets/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "@/hooks/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "@/API/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "@/store/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "@/types/**",
+						"group": "internal",
+						"position": "before"
+					},
+					{
+						"pattern": "@/utils/**",
+						"group": "internal",
+						"position": "before"
+					}
+				],
+				"newlines-between": "always",
+				"alphabetize": {
+					"order": "asc",
+					"caseInsensitive": true
+				}
+			}
+		]
+	},
+	"settings": {
+		"import/resolver": {
+			"typescript": {
+				"alwaysTryTypes": true,
+				"project": "."
+			},
+			"node": {
+				"paths": ["src"],
+				"extensions": [".js", ".jsx", ".ts", ".tsx"]
+			}
+		}
+	}
+}

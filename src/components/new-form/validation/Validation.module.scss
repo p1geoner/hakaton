@@ -1,0 +1,7 @@
+@import '@/assets/styles/templates.scss';
+
+.validation {
+	@extend %new-small;
+	color: var(--red-default);
+	line-height: 20px;
+}

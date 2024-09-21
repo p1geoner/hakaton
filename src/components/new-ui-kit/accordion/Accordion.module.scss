@@ -1,0 +1,85 @@
+@import "src/assets/styles/templates";
+
+.accordion {
+	background: var(--blue-extra-light);
+}
+
+.accordionHeader {
+	@include new-flex-gap(24px);
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 24px;
+	cursor: pointer;
+
+	-webkit-user-select: none; /* Safari */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+/Edge */
+	user-select: none; /* Standard */
+
+	&:hover {
+		&[aria-expanded='true'] .accordionState {
+			background: var(--blue-dark);
+		}
+
+		.accordionState {
+			background: var(--blue-default);
+
+			.icon path {
+				stroke: var(--white-default);
+			}
+		}
+	}
+
+	&[aria-expanded='true'] .accordionState {
+		background: var(--blue-default);
+
+		.icon {
+			transform: rotate(0deg);
+
+			path {
+				stroke: var(--white-default);
+			}
+		}
+	}
+
+	.accordionState {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 auto;
+
+		width: 46px;
+		height: 46px;
+
+		border-radius: 50%;
+		border: 1px solid var(--blue-default);
+
+		transition: all 0.25s ease-out 0s;
+
+		.icon {
+			transform: rotate(180deg);
+			transition: all 0.25s ease-out 0s;
+
+			path {
+				stroke: var(--blue-default);
+			}
+		}
+	}
+}
+
+.accordionContent {
+	height: 0;
+	overflow: hidden;
+	transition: all 0.5s;
+
+	.content {
+		padding: 4px 24px 24px;
+	}
+}
+
+
+.reverse {
+	display: flex;
+	flex-direction: column-reverse;
+}

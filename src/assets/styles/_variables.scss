@@ -1,0 +1,12 @@
+:root {
+  --font-family: "Inter", sans-serif;
+  --second-family: "Jost", sans-serif; // todo: new font
+
+  --pageTopPadding: 90px
+}
+
+@media screen and (max-width: 480px) {
+  :root {
+    --pageTopPadding: 66px;
+  }
+}

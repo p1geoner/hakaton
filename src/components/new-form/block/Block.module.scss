@@ -1,0 +1,28 @@
+@import '@/assets/styles/templates.scss';
+
+.block {
+  @include new-flex-col-gap(32px);
+	align-items: start;
+
+	& > div {
+		width: 100%;
+	}
+}
+
+.titleBold {
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.title {
+  font-size: 24px;
+	font-weight: 500;
+	line-height: 28px;
+
+	color: var(--black-default);
+
+	@media (max-width: 480px) {
+		font-size: 20px;
+		line-height: 24px;
+	}
+}

@@ -1,0 +1,45 @@
+@import "@/assets/styles/templates";
+
+.phoneField {
+  @include new-flex-col-gap(8px);
+}
+
+.phoneFieldWrapper {
+  @include new-flex-gap(8px);
+  align-items: center;
+}
+
+.prefixWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px 24px;
+  height: 54px;
+
+  border-radius: 6px;
+  background: var(--blue-extra-light);
+
+	@media (max-width: 480px) {
+		height: 46px;
+		padding: 12px 16px;
+	}
+}
+
+.prefix {
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 400;
+
+  color: var(--black-default);
+}
+
+.label{
+	width: max-content;
+	color: var(--grey-dark);
+	font-family: var(--font-family);
+
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 20px;
+}

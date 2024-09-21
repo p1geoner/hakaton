@@ -1,0 +1,14 @@
+@import '@/assets/styles/templates';
+
+.main {
+  @extend %main;
+  @include pageTopPadding(60px);
+
+  display: flex;
+  @extend %flex-center;
+
+  z-index: 0;
+  height: 100%;
+
+  padding-bottom: 100px;
+}

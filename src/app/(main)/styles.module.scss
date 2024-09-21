@@ -1,0 +1,61 @@
+@import '@/assets/styles/templates.scss';
+
+.main {
+  @extend %main;
+  @include new-flex-col-gap(60px);
+  background: var(--white-default);
+  padding-bottom: 120px;
+}
+
+.block {
+	max-width: 1000px;
+	width: 100%;
+	align-self: center;
+}
+
+.intro {
+	display: flex;
+	justify-content: space-between;
+
+	background-color: var(--blue-extra-light);
+	border-radius: 12px;
+	padding: 24px;
+}
+
+.title {
+	@include new-flex-col-gap(12px);
+	width: fit-content !important;
+	max-width: 590px;
+	h4 {
+		@extend %new-h4;
+
+	}
+
+	h2 {
+		@extend %new-h2;
+		font-weight: 400;
+	}
+}
+
+.icon {
+	min-width: 216px !important;
+}
+
+.block {
+	@include new-flex-col-gap(32px);
+}
+
+.blockTitle {
+	@extend %new-h3
+}
+
+.list {
+	@include new-flex-gap(24px);
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    gap: 60px;
+    padding-bottom: 60px;
+  }
+}

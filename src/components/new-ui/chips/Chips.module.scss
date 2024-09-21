@@ -1,0 +1,29 @@
+@import '@/assets/styles/templates.scss';
+
+.list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.item {
+
+}
+
+.name {
+	color: var(--grey-dark);
+	font-size: 16px;
+	font-weight: 400;
+}
+
+.close {
+  min-width: 13px;
+  height: 13px;
+
+  cursor: pointer;
+
+	path {
+		fill: var(--grey-default);
+	}
+}

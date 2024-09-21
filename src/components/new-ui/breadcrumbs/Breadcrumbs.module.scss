@@ -1,0 +1,32 @@
+@import '@/assets/styles/templates';
+
+.breadcrumbs {
+  @include new-flex-gap(8px);
+  align-items: center;
+  max-width: 100%;
+  width: 100%;
+}
+
+.item {
+  max-width: 100%;
+
+  &:last-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+  }
+
+  span, a {
+		@extend %new-small;
+    color: var(--grey-dark);
+    white-space: nowrap;
+  }
+}
+
+.lastItem {
+  color: var(--grey-light);
+
+  span {
+    color: var(--grey-light);
+  }
+}

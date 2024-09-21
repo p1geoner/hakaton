@@ -1,0 +1,296 @@
+// text
+
+$fs_h1: 32px;
+$fs_h2: 24px;
+$fs_subtitle: 22px;
+$fs_large: 16px;
+$fs_default: 14px;
+$fs_small: 12px;
+
+// mediaLinks screen size values
+
+$new-m_tablet: 1000px;
+$m_tablet: 1200px;
+$m_phone: 650px;
+$new-m_mobile: 480px;
+
+// borders
+
+$b_input: 1px solid var(--c_grey);
+
+// border radius
+
+$br_default: 8px;
+$br_secondary: 12px;
+$br_hundred: 100px;
+
+// simple templates
+
+%flex-col {
+	display: flex;
+	flex-direction: column;
+}
+
+%flex-center {
+	justify-content: center;
+	align-items: center;
+}
+
+%main {
+	flex: 1 1 auto;
+}
+%form-wrapper {
+	max-width: 720px;
+}
+
+%section {
+	@extend %flex-col;
+	padding: 20px;
+	background-color: var(--white-background);
+
+	border-radius: $br_default;
+}
+
+%new-section {
+	@extend %flex-col;
+	padding: 24px;
+	border-radius: $br_default;
+
+	background-color: var(--white-background);
+
+	@media (max-width: 480px) {
+		padding: 12px;
+	}
+}
+
+%new-h1 {
+	font-weight: 500;
+	line-height: 66px;
+	font-size: 60px;
+
+	color: var(--black-default);
+	letter-spacing: -0.06em;
+
+	@media screen and (max-width: $new-m_tablet) {
+		font-size: 46px;
+		line-height: 50px;
+	}
+
+	@media screen and (max-width: $new-m_mobile) {
+		font-size: 26px;
+		line-height: 28.6px;
+	}
+}
+
+%new-h2 {
+	font-weight: 500;
+
+	font-size: 40px;
+
+	color:  var(--black-default);
+	letter-spacing: -0.04em;
+
+	@media screen and (max-width: $m_tablet) {
+		font-size: 40px;
+	}
+
+	@media screen and (max-width: $new-m_mobile) {
+		font-size: 22px;
+	}
+
+}
+
+%new-h3 {
+	font-weight: 500;
+
+	font-size: 24px;
+
+	color:  var(--black-default);
+	letter-spacing: -0.03em;
+
+	@media screen and (max-width: $new-m_mobile) {
+		font-size: 20px;
+	}
+
+}
+
+%new-h4 {
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 26.4px;
+	color:  var(--black-default);
+	letter-spacing: -0.02em;
+
+	@media screen and (max-width: $new-m_mobile) {
+		font-size: 18px;
+		line-height: 22px;
+	}
+}
+
+%new-p {
+	font-size: 16px;
+	font-weight: 400;
+	letter-spacing: -0.06em;
+	color: var(--grey-light);
+}
+
+%new-regular {
+	font-size: 16px;
+	font-weight: 400;
+	letter-spacing: -0.01em;
+	line-height: 21.6px;
+	color: var(--black-default);
+}
+
+
+%new-regular {
+	font-size: 16px;
+	font-weight: 400;
+	letter-spacing: -0.01em;
+	line-height: 21.6px;
+	color: var(--black-default);
+}
+
+%new-small {
+	font-size: 14px;
+	font-weight: 400;
+	color: var(--black-default);
+}
+
+
+%subtitle {
+	font-weight: 600;
+	font-size: $fs_subtitle;
+
+	@media screen and (max-width: $m_phone) {
+		font-size: 18px;
+	}
+}
+
+%textfield {
+	height: 50px;
+	width: 100%;
+
+	padding: 0 15px;
+
+	border: $b_input;
+	border-radius: 5px;
+	outline: none !important;
+	background-color: var(--c_light);
+	color: var(--c_dark);
+
+	&:focus {
+		border-color: var(--c_blue) !important;
+	}
+
+	&:not(:placeholder-shown) {
+		border-color: var(--c_dark);
+	}
+
+	&.borderless {
+		border: none !important;
+		background-color: var(--c_light);
+		height: 48px;
+	}
+}
+
+// mixins
+
+@mixin wrapper($pd) {
+	max-width: 1320px;
+	width: 100%;
+	margin: 0 auto;
+	padding: $pd;
+}
+
+@mixin form() {
+	@extend %flex-col;
+
+	max-width: 650px;
+	width: 100%;
+
+	padding: 60px;
+	margin: 0 auto;
+
+	background-color: var(--c_white-all);
+	border-radius: $br_default;
+
+	@media screen and (max-width: 768px) {
+		& {
+			padding: 40px 20px;
+		}
+	}
+}
+
+@mixin new-form() {
+	@extend %flex-col;
+
+	max-width: 580px;
+	width: 100%;
+
+	margin: 0 auto;
+
+	background-color: var(--white-background);
+	border-radius: $br_default;
+
+	padding-top: 60px;
+	padding-bottom: 60px;
+
+	@media screen and (max-width: 768px) {
+		& {
+			padding: 40px 20px;
+		}
+	}
+}
+
+@mixin flex-col-gap($gap) {
+	display: flex;
+	flex-direction: column;
+
+	& > * {
+		margin-bottom: $gap;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+@mixin flex-gap($gap) {
+	display: flex;
+
+	& > * {
+		margin-right: $gap;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+// !! new !!
+@mixin pageTopPadding($px) {
+	padding-top: calc(var(--pageTopPadding) + $px);
+
+	@media screen and (max-width: 480px) {
+		padding-top: calc(var(--pageTopPadding) + $px);
+	}
+}
+
+@mixin new-wrapper($pd) {
+	margin: 0 auto;
+	max-width: 1360px;
+	width: 100%;
+	padding: $pd;
+}
+
+@mixin new-flex-col-gap($gap) {
+	display: flex;
+	flex-direction: column;
+	gap: $gap;
+}
+
+@mixin new-flex-gap($gap) {
+	display: flex;
+	gap: $gap;
+}

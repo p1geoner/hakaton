@@ -1,0 +1,49 @@
+@import '@/assets/styles/templates';
+
+.main {
+  @extend %main;
+  @include pageTopPadding(60px);
+
+  z-index: 0;
+  padding-bottom: 130px;
+}
+
+.wrapper {
+  @include wrapper(0 20px);
+  @include flex-col-gap(30px);
+  align-items: flex-start;
+}
+
+.top {
+  padding: 10px 15px;
+  background-color: var(--c_light);
+}
+
+.title {
+  font-size: 48px;
+
+  line-height: 1;
+}
+
+.description {
+  font-size: 18px;
+}
+
+.button {
+  padding-left: 50px;
+  padding-right: 50px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: $m_tablet) {
+  .title {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: $m_tablet) {
+  .wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

@@ -1,0 +1,40 @@
+@import '@/assets/styles/templates';
+
+.popup {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 1000;
+}
+
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: auto;
+
+  background: var(--black-60);
+  overflow-y: auto;
+}
+
+.content {
+  position: relative;
+
+  background-color: var(--white-background);
+  border-radius: 12px;
+  -webkit-box-shadow: 0 0 12px 0 rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0 0 12px 0 rgba(34, 60, 80, 0.2);
+  box-shadow: 0 0 12px 0 rgba(34, 60, 80, 0.2);
+
+  z-index: 100;
+
+  @media (max-width: 480px) {
+    margin: auto 12px auto;
+  }
+}

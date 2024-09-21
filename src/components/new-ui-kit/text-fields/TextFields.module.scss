@@ -1,0 +1,152 @@
+@import '@/assets/styles/templates';
+
+// all styles
+.inputWrapper {
+  position: relative;
+  width: 100%;
+	height: 100%;
+
+  .leftIconWrapper, .rightIconWrapper {
+    position: absolute;
+    top: 16px;
+  }
+
+  .fillIconWrapper svg path {
+    fill: var(--grey-dark);
+  }
+
+  .strokeIconWrapper svg path {
+    stroke: var(--grey-dark);
+  }
+
+  .disabledFillIconWrapper {
+    cursor: not-allowed;
+
+    svg path {
+      fill: var(--grey-light);
+    }
+  }
+
+  .disabledStrokeIconWrapper {
+    cursor: not-allowed;
+
+    svg path {
+      stroke: var(--grey-light);
+    }
+  }
+
+  .iconHasOnClick {
+    cursor: pointer;
+  }
+}
+
+.leftIconWrapper {
+  left: 16px;
+}
+
+.rightIconWrapper {
+  right: 16px;
+}
+
+.textArea, .input {
+  width: 100%;
+
+  border-radius: 6px;
+  border: 1px solid var(--blue-extra-light);
+  background: var(--blue-extra-light);
+
+  color: var(--black-default);
+  font-family: var(--font-family);
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: -0.006em;
+
+  transition: all 0.15s ease-out;
+
+  &::placeholder {
+    color: var(--grey-dark);
+  }
+
+  &:not(:placeholder-shown) {
+    color: var(--black-default);
+  }
+
+  &.error {
+    border-color: var(--red-default);
+    background: var(--red-extra-light);
+  }
+
+  &:hover {
+    border-color: var(--grey-light);
+  }
+
+  &:focus {
+    border-color: var(--blue-default)
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    color: var(--grey-light);
+    border-color: var(--grey-light);
+    background: var(--blue-extra-light);
+
+    &::placeholder {
+      color: var(--grey-light);
+    }
+
+    &:not(:placeholder-shown) {
+      color: var(--grey-light);
+    }
+  }
+
+	&.withLeftIcon {
+		padding-left: 50px;
+	}
+
+	&.withRightIcon {
+		padding-right: 50px;
+	}
+}
+
+// custom input styles
+.input {
+  height: 54px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  &::-ms-reveal {
+    display: none;
+  }
+
+  &.withLeftIcon {
+    padding-left: 50px;
+  }
+
+  &.withRightIcon {
+    padding-right: 50px;
+  }
+}
+
+// custom textArea styles
+.textArea {
+  padding: 15px;
+  resize: vertical;
+  min-height: 144px;
+}
+
+.notResizable {
+  resize: none;
+}
+
+@media screen and (max-width: 480px) {
+  .input {
+    height: 46px;
+  }
+
+	.leftIconWrapper, .rightIconWrapper {
+		top: 12px !important;
+	}
+
+}

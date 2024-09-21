@@ -1,0 +1,114 @@
+@import '@/assets/styles/templates.scss';
+
+$animation-duration: 1.5s;
+
+@function randomNum($min, $max) {
+	$rand: random();
+	$randomNum: $min + floor($rand * (($max - $min) + 1));
+
+	@return $randomNum;
+}
+
+@mixin skeleton($width, $height) {
+	display: block;
+	max-width: $width;
+	width: 100%;
+	height: $height;
+
+	background-color: var(--c_blue);
+	opacity: 0.4;
+
+	border-radius: $br_default;
+}
+
+@mixin new-skeleton($width, $height) {
+	display: block;
+	max-width: $width;
+	width: 100%;
+	height: $height;
+
+	background-color: var(--blue-extra-light);
+
+	border-radius: $br_default;
+}
+
+@mixin new-skeleton-header($width, $height) {
+	display: block;
+	max-width: $width;
+	width: 100%;
+	height: $height;
+
+	background-color: var(--black-20);
+
+	border-radius: $br_default;
+}
+
+
+@mixin background-gradient {
+	background-image: linear-gradient(
+			90deg,
+			transparent 0px,
+			var(--black-6) 40px,
+			transparent 180px
+	);
+}
+
+@mixin skeletonSection {
+	position: relative;
+	overflow: hidden;
+
+	&:before {
+		content: '';
+
+		display: block;
+
+		position: absolute;
+		z-index: 10;
+
+		width: 100%;
+		height: 100%;
+
+		@include background-gradient;
+		animation: shine-lines $animation-duration infinite linear;
+	}
+}
+
+@mixin newSkeletonSection {
+	position: relative;
+	overflow: hidden;
+
+	&:before {
+		content: '';
+
+		display: block;
+
+		position: absolute;
+		z-index: 10;
+
+		width: 100%;
+		height: 100%;
+
+		@include background-gradient;
+		animation: new-shine-lines $animation-duration infinite linear;
+	}
+}
+
+@keyframes shine-lines {
+	0% {
+		background-position: -200px;
+	}
+
+	100% {
+		background-position: 900px;
+	}
+}
+
+@keyframes new-shine-lines {
+	0% {
+		background-position: -100px;
+	}
+
+	100% {
+		background-position: 100px;
+	}
+}

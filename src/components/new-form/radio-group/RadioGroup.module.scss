@@ -1,0 +1,10 @@
+@import '@/assets/styles/templates.scss';
+
+.container {
+
+}
+
+
+.list {
+	@include new-flex-col-gap(12px);
+}

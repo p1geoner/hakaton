@@ -1,0 +1,5 @@
+@import '@/assets/styles/templates';
+
+.wrapper {
+  @include flex-col-gap(8px);
+}

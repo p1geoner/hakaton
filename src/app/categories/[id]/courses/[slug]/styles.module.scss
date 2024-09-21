@@ -1,0 +1,42 @@
+@import '@/assets/styles/templates';
+
+.main {
+  @extend %main;
+  @include new-flex-col-gap(60px);
+  background: var(--white-default);
+  padding-bottom: 120px;
+}
+
+.wrapper {
+	@include new-flex-col-gap(32px);
+	max-width: 1000px;
+	width: 100%;
+	align-self: center;
+}
+
+.list {
+	max-width: 1000px;
+	width: 100%;
+	align-self: center;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 24px;
+}
+.header {
+	@include new-flex-col-gap(24px);
+	max-width: 1000px;
+	width: 100%;
+	align-self: center;
+	align-items: start;
+
+	h2 {
+		@extend %new-h2;
+	}
+}
+
+@media screen and (max-width: 480px) {
+  .main {
+    gap: 60px;
+    padding-bottom: 60px;
+  }
+}

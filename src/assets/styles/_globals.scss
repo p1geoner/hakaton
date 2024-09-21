@@ -1,0 +1,16 @@
+.icon-stroke {
+  &.black-default path {
+    stroke: var(--black-default);
+  }
+}
+
+.icon-fill {
+  &.black-default path {
+    fill: var(--black-default);
+  }
+}
+
+.hidden {
+	max-height: 100% !important;
+	overflow: hidden !important;
+}

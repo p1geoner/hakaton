@@ -1,0 +1,30 @@
+@import "@/assets/styles/templates";
+
+.searchPanel {
+  display: flex;
+  padding: 6px;
+  border-radius: $br_secondary;
+  background: var(--white-default);
+  width: 100%;
+  border: 1px solid var(--grey-light);
+}
+
+.input {
+	@extend %new-h4;
+	color: var(--grey-default);
+  width: 100%;
+  margin: 0 20px 0 10px;
+  background: transparent;
+}
+
+.button {
+  flex: 0 0 auto;
+}
+
+.buttons {
+  @include new-flex-gap(4px);
+
+  .greyButton {
+    background-color: var(--blue-extra-light);
+  }
+}

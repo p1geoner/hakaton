@@ -1,0 +1,36 @@
+.wrapper {
+	position: relative;
+
+	&:active .floatingElement {
+		opacity: 0;
+	}
+}
+
+.floatingElement {
+	position: absolute;
+	z-index: 40;
+
+	opacity: 1;
+	transform: scale(1);
+	pointer-events: none;
+
+	transition: transform 0.15s ease-out, opacity 0.15s ease-out;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	height: 80px;
+	width: 80px;
+
+	border-radius: 50%;
+	background: #FFFFFF;
+
+	border: 1px solid var(--blue-default)
+}
+
+@media screen and (max-width: 480px) {
+	.floatingElement {
+		display: none;
+	}
+}

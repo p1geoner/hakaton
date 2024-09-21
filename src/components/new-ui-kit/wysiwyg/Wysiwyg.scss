@@ -1,0 +1,42 @@
+@import '@/assets/styles/templates';
+
+.rdw-editor-wrapper {
+  width: 100%;
+  border: 1px solid var(--c_grey);
+  border-radius: $br_default;
+  background-color: var(--c_white-all);
+  overflow: hidden;
+}
+
+.rdw-editor-toolbar {
+  border: none;
+  border-bottom: 1px solid var(--c_grey);
+  background-color: var(--c_white-all);
+}
+
+.rdw-option-wrapper {
+  border: none;
+  transition: all 0.15s ease-in-out;
+  background-color: var(--c_light);
+
+  &:hover {
+    box-shadow: none;
+    opacity: 0.5;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+}
+
+.rdw-option-active {
+  box-shadow: none;
+  border: 1px solid var(--c_dark);
+}
+
+.rdw-editor-main {
+  position: relative;
+  z-index: 0;
+  height: 150px;
+  padding: 0 15px;
+}

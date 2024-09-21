@@ -1,0 +1,15 @@
+@import '../../../../assets/styles/templates';
+
+.main {
+	@extend %main;
+	@include pageTopPadding(60px);
+
+
+}
+
+@media (max-width: 1000px) {
+	.main {
+		padding-left: 20px !important;
+		padding-right: 20px !important;
+	}
+}

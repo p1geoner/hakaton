@@ -1,0 +1,26 @@
+@import "src/assets/styles/templates";
+
+.quote {
+  @include new-flex-col-gap(12px);
+
+  border-left: 3px solid var(--grey-light);
+  padding-left: 12px;
+}
+
+.caption, .caption * {
+  color: var(--grey-default);
+  font-family: var(--font-family);
+
+  font-size: 16px;
+  line-height: 22px;
+  font-style: italic;
+}
+
+.text, .text * {
+  color: var(--grey-dark);
+  font-family: var(--font-family);
+
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: -0.01em;
+}

@@ -1,0 +1,45 @@
+.custom-datepicker__day--today {
+	background: var(--blue-default);
+	color: var(--white-default) !important;
+
+	&:hover {
+		background: var(--blue-default);
+		color: var(--white-default) !important;
+	}
+}
+
+.custom-datepicker__day--selected {
+	border: 1px solid var(--blue-default);
+	color: var(--blue-default) !important;
+	padding: 9px 0;
+
+	&:hover {
+		background: var(--white-default);
+	}
+}
+
+// calendar events
+.custom-datepicker__day--has-event {
+
+	&:not(.react-datepicker__day--outside-month, .custom-datepicker__day--today) {
+		color: var(--blue-default) !important;
+	}
+}
+
+.custom-datepicker__day--recorded {
+
+	&:not(.react-datepicker__day--outside-month, .custom-datepicker__day--today) {
+		background: var(--blue-8) !important;
+		color: var(--blue-default);
+
+		&.custom-datepicker__day--recorded-has-prev {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+
+		&.custom-datepicker__day--recorded-has-next {
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+	}
+}

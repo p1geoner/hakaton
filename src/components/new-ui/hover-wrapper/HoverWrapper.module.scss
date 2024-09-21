@@ -1,0 +1,94 @@
+@import "src/assets/styles/templates";
+
+.hoverWrapper {
+	height: 100%;
+	width: 100%;
+	position: relative;
+
+	cursor: pointer;
+
+	&:hover {
+		.dynamicButton {
+			gap: 6px;
+			background: var(--blue-dark);
+
+			.textWrapper {
+				opacity: 1;
+				width: 72px;
+			}
+		}
+
+		.staticButton {
+			background: var(--blue-dark);
+		}
+	}
+}
+
+.dynamicButton {
+	@include new-flex-gap(0);
+	justify-content: flex-start;
+	align-items: center;
+
+	position: absolute;
+	user-select: none;
+
+	border-radius: 100px;
+	padding: 12px;
+
+	transition: all 0.5s ease 0s;
+	background: var(--blue-default);
+
+	svg {
+		max-width: 22px;
+		max-height: 22px;
+		min-width: 22px;
+		min-height: 22px;
+	}
+
+	.textWrapper {
+		width: 0;
+		opacity: 0;
+
+		overflow: hidden;
+		transition: all 0.5s ease 0s;
+	}
+
+	.text {
+		font-family: var(--font-family);
+		color: var(--white-default);
+
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 135%;
+		letter-spacing: -0.01em;
+	}
+}
+
+.staticButton {
+	position: absolute;
+	width: max-content;
+
+	border-radius: 100px;
+	padding: 12px 16px;
+
+	transition: all 0.5s ease 0s;
+	background: var(--blue-default);
+
+	.text {
+		color: var(--White-Default, #FFFFFF);
+
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 22px;
+		letter-spacing: -0.006em;
+	}
+}
+
+.isFullDynamicButton .dynamicButton {
+	gap: 6px;
+
+	.textWrapper {
+		opacity: 1;
+		width: 72px;
+	}
+}

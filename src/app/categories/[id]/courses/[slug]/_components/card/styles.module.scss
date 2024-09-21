@@ -1,0 +1,37 @@
+@import "@/assets/styles/templates";
+.card {
+	@include new-flex-col-gap(12px);
+	border-radius: 12px;
+	padding: 24px;
+	max-width: 320px;
+	width: 100%;
+	background-color: var(--blue-extra-light);
+
+	img {
+		max-height: 180px;
+		width: 100%;
+		object-fit: cover;
+		border-radius: 8px;
+	}
+
+	.description {
+		@include new-flex-col-gap(8px);
+
+		h3 {
+			@extend %new-h3
+		}
+
+		.aditionalInfo {
+			@include new-flex-col-gap(4px);
+
+			p {
+				@extend %new-small;
+				color: var(--grey-default) !important;
+			}
+		}
+	}
+
+	.button {
+		align-self: end;
+	}
+}
