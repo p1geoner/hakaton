@@ -1,9 +1,9 @@
 import { TCategory } from '@/API/rest/courses/CourseService';
 
 export type ChipsProps = {
-  skills: TCategory[];
+  skills: TCategory[] | { id: string; title: string }[];
   type?: 'add';
-  activeId: number | null;
+  activeId?: number | string | null;
   onDelete?: (id: any) => void;
   onChange?: (id: any) => void;
   className?: string;

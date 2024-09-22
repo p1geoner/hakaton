@@ -17,6 +17,7 @@ export const TextField = ({
   // FieldWrapperProps
   label,
   subTitle,
+  // @ts-ignore
   error,
   fieldWrapperRef,
   fieldWrapperClassName,

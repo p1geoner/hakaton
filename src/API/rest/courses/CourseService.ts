@@ -17,8 +17,7 @@ export interface TSubCategory {
   image: string;
 }
 export type GetCoursesResponse = {
-  title: string;
-  courses: TCourse[];
+  results: { title: string; courses: TCourse[] };
 };
 
 export type GetCourseBlocksResponse = {
@@ -27,6 +26,28 @@ export type GetCourseBlocksResponse = {
 };
 
 export type GetCoursesCategories = {};
+
+export type GetLessonResponse = {
+  id: number;
+  title: string;
+  block: Block;
+  base_blocks: BaseBlock[];
+  course_is_completed: boolean;
+  created_at: string;
+  updated_at: string;
+};
+export interface Block {
+  id: number;
+  title: string;
+}
+
+export interface BaseBlock {
+  id: number;
+  position: number;
+  text: string;
+  type: string;
+  resourcetype: string;
+}
 
 class CourseService {
   fetchCategories() {
@@ -86,6 +107,20 @@ class CourseService {
       method: 'POST',
       authToken: true,
       data: formData,
+    });
+  }
+  saveLesson(formData) {
+    return makeRequest<{ id: string }>({
+      url: 'api/lessons/',
+      method: 'POST',
+      authToken: true,
+      data: formData,
+    });
+  }
+  getLesson(id) {
+    return makeRequest<GetLessonResponse>({
+      url: `api/lessons/${id}/`,
+      authToken: true,
     });
   }
 }

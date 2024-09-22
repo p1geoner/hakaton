@@ -5,6 +5,7 @@ export type FileUploadProps = {
   extensions?: any;
   description?: string;
   label?: string;
+  value?: File;
   wrapperClassname?: string;
   maxSize?: number;
   text?: string;

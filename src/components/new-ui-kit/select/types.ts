@@ -2,8 +2,6 @@ import { GroupBase, Props } from 'react-select';
 
 import { IFieldWrapperProps } from '@/components/new-ui';
 
-import { TPromptType } from '@/types/general/unions';
-
 export enum SelectTheme {
   DARK = 'dark',
   LIGHT = 'light',
@@ -19,5 +17,5 @@ export interface IBaseSelectProps extends IFieldWrapperProps {
   selectTheme?: SelectTheme;
   selectClassName?: string;
   icon?: any;
-  typePrompt?: TPromptType;
+  typePrompt?: any;
 }

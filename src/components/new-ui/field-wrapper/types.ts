@@ -1,10 +1,6 @@
 import { LegacyRef, PropsWithChildren } from 'react';
 
-import { IValidationProps } from '@/components/new-form';
-
-export interface IFieldWrapperProps
-  extends IValidationProps,
-    PropsWithChildren {
+export interface IFieldWrapperProps extends PropsWithChildren {
   label?: string;
   subTitle?: string;
   fieldWrapperClassName?: string;

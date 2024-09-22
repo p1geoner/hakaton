@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ChangeEvent, FC, MouseEvent, useState } from 'react';
+import { ChangeEvent, FC, MouseEvent, useEffect, useState } from 'react';
 
 import { FileUploadProps } from './types';
 
@@ -16,6 +16,7 @@ export const FileField: FC<FileUploadProps> = ({
   extensions,
   description,
   label,
+  value,
   wrapperClassname = '',
   maxSize = 10_485_760,
   text,
@@ -23,6 +24,17 @@ export const FileField: FC<FileUploadProps> = ({
   const [file, setFile] = useState<null | File>(null);
   const [fileUrl, setFileUrl] = useState<string | null>(url ?? null);
   const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    setFile(value);
+    setFileUrl(
+      currentFileName && currentFileName.length > 20
+        ? currentFileName.slice(0, 20) +
+            '...' +
+            currentFileName.slice(currentFileName.lastIndexOf('.'))
+        : currentFileName
+    );
+  }, [value]);
 
   const checkFileSize = (file: File) => {
     if (file.size > maxSize) {

@@ -41,8 +41,8 @@ const Page: FC = observer(() => {
         );
 
         if ('data' in response) {
-          setName(response.data.title);
-          setCourses(response.data.courses);
+          setName(response.data.results.title);
+          setCourses(response.data.results.courses);
         }
       }
     };

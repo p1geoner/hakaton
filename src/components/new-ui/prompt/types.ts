@@ -1,7 +1,5 @@
-import { TPromptType } from '@/types/general/unions';
-
 export type PromptProps = {
-  type: TPromptType;
+  type: any;
   color?: 'grey' | 'blue';
   className?: string;
 };

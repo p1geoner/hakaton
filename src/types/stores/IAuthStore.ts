@@ -1,7 +1,6 @@
 import { TAuthStatuses, TRegStatuses } from '@/hooks/types';
 
 import { APIResponse } from '@/types/api/IAPI';
-import { LoginResponse, RegistrationResponse } from '@/types/api/IAuthResponse';
 import { TUser } from '@/types/entities/IUser';
 import { TRestoreStates } from '@/types/general/unions';
 import { IRootStore } from '@/types/stores/IRootStore';
@@ -25,8 +24,8 @@ export interface IAuthStore {
   setRestoreState: (state: TRestoreStates) => void;
   setRestoreEmail: (email: string) => void;
 
-  registration: (user: FormData) => APIResponse<RegistrationResponse>;
-  authorization: (user: FormData) => APIResponse<LoginResponse>;
+  registration: (user: FormData) => APIResponse<any>;
+  authorization: (user: FormData) => APIResponse<any>;
   logout: () => void;
   checkAuth: () => void;
 }

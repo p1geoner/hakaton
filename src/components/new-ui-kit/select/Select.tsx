@@ -25,6 +25,7 @@ export const Select = <
   // FieldWrapperProps
   label,
   subTitle,
+  // @ts-ignore
   error,
   fieldWrapperClassName,
   fieldWrapperRef,

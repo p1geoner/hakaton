@@ -7,6 +7,7 @@ import { FC, useState } from 'react';
 import { Block } from '@/app/course-create/_components/block/Block';
 import { CreateBlock } from '@/app/course-create/_components/blocks/create-block/CreateBlock';
 import { CreateCourse } from '@/app/course-create/_components/blocks/create-course/CreateCourse';
+import { CreateLesson } from '@/app/course-create/_components/create-lesson/CreateLesson';
 
 import AsyncSelect from '@/components/new-form/async-select/AsyncSelect';
 import { PageWrapper } from '@/components/new-layouts';
@@ -68,6 +69,7 @@ const ProfilePage: FC = observer(() => {
           />
         )}
         {block && <h3>{block}</h3>}
+        {block && <CreateLesson blockId={blockId} />}
       </div>
     </PageWrapper>
   );

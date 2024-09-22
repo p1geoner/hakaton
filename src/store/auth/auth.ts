@@ -103,7 +103,6 @@ export class Auth implements IAuthStore {
 
     Cookies.remove('auth_token');
 
-    this.rootStore.account = null;
     this.setAuth(false);
   }
 
