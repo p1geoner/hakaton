@@ -4,4 +4,8 @@
 	max-width: 1000px;
 	width: 100%;
 	align-self: center;
+
+	h3 {
+		@extend %new-h3;
+	}
 }
