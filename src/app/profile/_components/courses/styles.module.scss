@@ -1,0 +1,7 @@
+@import '@/assets/styles/templates';
+.wrapper {
+	@include new-flex-col-gap(32px);
+	max-width: 1000px;
+	width: 100%;
+	align-self: center;
+}

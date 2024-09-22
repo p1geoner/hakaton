@@ -27,6 +27,13 @@ export type GetCourseBlocksResponse = {
 
 export type GetCoursesCategories = {};
 
+export type TcourseCat = {
+  id: number;
+  title: string;
+  courses: TCourse[];
+};
+export type GetUserCategory = TcourseCat[];
+
 export type GetLessonResponse = {
   id: number;
   title: string;
@@ -45,6 +52,7 @@ export interface BaseBlock {
   id: number;
   position: number;
   text: string;
+  image?: string;
   type: string;
   resourcetype: string;
 }
@@ -120,6 +128,18 @@ class CourseService {
   getLesson(id) {
     return makeRequest<GetLessonResponse>({
       url: `api/lessons/${id}/`,
+      authToken: true,
+    });
+  }
+  getUserCategories() {
+    return makeRequest<GetUserCategory>({
+      url: 'api/users/categories/',
+      authToken: true,
+    });
+  }
+  getTree(slug) {
+    return makeRequest<object>({
+      url: `api/courses/${slug}/map/`,
       authToken: true,
     });
   }

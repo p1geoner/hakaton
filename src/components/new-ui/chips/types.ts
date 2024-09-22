@@ -1,7 +1,7 @@
-import { TCategory } from '@/API/rest/courses/CourseService';
+import { GetUserCategory, TCategory } from '@/API/rest/courses/CourseService';
 
 export type ChipsProps = {
-  skills: TCategory[] | { id: string; title: string }[];
+  skills: TCategory[] | GetUserCategory | { id: string; title: string }[];
   type?: 'add';
   activeId?: number | string | null;
   onDelete?: (id: any) => void;

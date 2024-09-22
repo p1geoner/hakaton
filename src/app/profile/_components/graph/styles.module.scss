@@ -1,0 +1,20 @@
+@import '@/assets/styles/templates';
+.course {
+	display: flex;
+	gap: 8px;
+	svg {
+		margin-right: 8px;
+	}
+	p {
+		@extend %new-h4;
+
+		color: var(--grey-light);
+	}
+	a {
+		@extend %new-h4;
+	}
+}
+
+.flex {
+	@include new-flex-col-gap(24px);
+}
