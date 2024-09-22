@@ -6,6 +6,13 @@
 	overflow: hidden;
 }
 
+.complete {
+	span {
+		color: var(--c_green) !important;
+
+	}
+}
+
 .blockTitle {
 	@extend %new-h4;
 }

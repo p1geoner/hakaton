@@ -13,9 +13,11 @@ import styles from './styles.module.scss';
 export const Card = ({
   course,
   categoryId,
+  isExternal = false,
 }: {
   course: TCourse;
   categoryId?: string;
+  isExternal: boolean;
 }) => {
   return (
     <Link
@@ -23,7 +25,11 @@ export const Card = ({
       className={styles.card}
     >
       <img
-        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${course.cover}`}
+        src={
+          isExternal
+            ? `${course.cover}`
+            : `${process.env.NEXT_PUBLIC_BACKEND_URL}${course.cover}`
+        }
         alt=''
       />
       <div className={styles.description}>

@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { useParams } from 'next/navigation';
 
 import {
@@ -23,8 +24,7 @@ export const Body = ({ blocks }: { blocks: TCourseBlock[] }) => {
           <AccordionHeader>
             <div className={styles.header}>
               <h4 className={styles.blockTitle}>
-                {blockIndex + 1}
-                {block.title}
+                {blockIndex + 1}. {block.title}
               </h4>
               {block.is_finished && <p>Раздел пройден</p>}
             </div>
@@ -40,6 +40,7 @@ export const Body = ({ blocks }: { blocks: TCourseBlock[] }) => {
                     id: lesson.id,
                   })}
                   variant={ButtonVariant.INLINE}
+                  className={clsx({ [styles.complete]: lesson.is_finished })}
                 >
                   {blockIndex + 1}.{lessonIndex + 1}
                   {lesson.title}

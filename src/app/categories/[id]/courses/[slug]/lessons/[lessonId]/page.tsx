@@ -5,7 +5,12 @@ import { useParams, useRouter } from 'next/navigation';
 import { FC, useEffect, useState } from 'react';
 
 import { PageWrapper } from '@/components/new-layouts';
-import { ButtonVariant, LinkBtn, SearchPanel } from '@/components/new-ui-kit';
+import {
+  Button,
+  ButtonVariant,
+  LinkBtn,
+  SearchPanel,
+} from '@/components/new-ui-kit';
 
 import { useStore } from '@/hooks/useStore';
 
@@ -61,6 +66,11 @@ const Main: FC = observer(() => {
     }
   };
 
+  const onComplete = async () => {
+    const response = await CourseService.completelesson(lessonId);
+    await router.push(`/categories/${id}/courses/${slug}/`);
+  };
+
   return (
     <PageWrapper mainStyles={styles.main}>
       <div className={styles.header}>
@@ -77,6 +87,7 @@ const Main: FC = observer(() => {
           <h2>{lesson.title}</h2>
           <SearchPanel placeholder={'Поиск по уроку'} />
           {lesson.base_blocks.map((block) => getFieldByType(block))}
+          <Button onClick={() => onComplete()}>Завершить урок</Button>
         </div>
       )}
     </PageWrapper>

@@ -143,6 +143,13 @@ class CourseService {
       authToken: true,
     });
   }
+  completelesson(id) {
+    return makeRequest<object>({
+      url: `api/lessons/${id}/complite/`,
+      method: 'post',
+      authToken: true,
+    });
+  }
 }
 
 export default new CourseService();

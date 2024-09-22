@@ -24,11 +24,10 @@ const Main: FC = observer(() => {
   ];
   const courses = [
     {
-      title: 'dasdas dasd a',
+      title: 'Многопоточный Python',
       id: 1,
-      slug: 'sdsdsdsd-sdadaa',
-      cover:
-        'https://bim-portal.ru/wp-content/uploads/2023/05/daf255b6b80a-min-1024x768.jpg',
+      slug: 'mnogopotochniy_python',
+      cover: 'http://82.148.18.179//uploads/courses/2.png',
       count_lessons: 15,
       author: {
         id: 2,
@@ -36,11 +35,10 @@ const Main: FC = observer(() => {
       },
     },
     {
-      title: 'dasdas dasd a',
+      title: 'Fullstack разработка',
       id: 1,
-      slug: 'sdsdsdsd-sdadaa',
-      cover:
-        'https://bim-portal.ru/wp-content/uploads/2023/05/daf255b6b80a-min-1024x768.jpg',
+      slug: 'fullstack',
+      cover: 'http://82.148.18.179//uploads/courses/11.jpg',
       count_lessons: 15,
       author: {
         id: 2,
@@ -48,11 +46,10 @@ const Main: FC = observer(() => {
       },
     },
     {
-      title: 'dasdas dasd a',
+      title: 'Основы Git',
       id: 1,
-      slug: 'sdsdsdsd-sdadaa',
-      cover:
-        'https://bim-portal.ru/wp-content/uploads/2023/05/daf255b6b80a-min-1024x768.jpg',
+      slug: 'git_osnovi',
+      cover: 'http://82.148.18.179/uploads/courses/10.jpg',
       count_lessons: 15,
       author: {
         id: 2,
@@ -77,12 +74,17 @@ const Main: FC = observer(() => {
         <h3 className={styles.blockTitle}>Популярные курсы:</h3>
         <div className={styles.list}>
           {courses.map((course) => (
-            <Card course={course} key={course.slug} />
+            <Card
+              isExternal={true}
+              categoryId={'6'}
+              course={course}
+              key={course.slug}
+            />
           ))}
         </div>
       </div>
       <div className={styles.block}>
-        <h3 className={styles.blockTitle}>Популярные курсы:</h3>
+        {/* <h3 className={styles.blockTitle}>Популярные курсы:</h3>*/}
         <div className={styles.list}>
           {partners.map((partner) => (
             <Link href={partner.src} className={styles.partner}>
