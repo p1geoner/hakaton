@@ -1,17 +1,20 @@
 'use client';
 
 import { observer } from 'mobx-react-lite';
-import { useRouter } from 'next/navigation';
-import { FC } from 'react';
+import { useParams, useRouter } from 'next/navigation';
+import { FC, useEffect, useState } from 'react';
 
-import { Card } from '@/app/categories/[id]/courses/[slug]/_components/card/Card';
+import { Body } from '@/app/categories/[id]/courses/[slug]/_components/body/Body';
+import { Header } from '@/app/categories/[id]/courses/[slug]/_components/header/Header';
 
 import { PageWrapper } from '@/components/new-layouts';
-import { ButtonVariant, LinkBtn, SearchPanel } from '@/components/new-ui-kit';
+import { ButtonVariant, LinkBtn } from '@/components/new-ui-kit';
 
 import { useStore } from '@/hooks/useStore';
 
-import { TCourse } from '@/types/entities/ICourse';
+import CourseService from '@/API/rest/courses/CourseService';
+
+import { TCourse, TCourseBlock } from '@/types/entities/ICourse';
 
 import { staticLinks } from '@/config/routingLinks';
 
@@ -20,83 +23,23 @@ import IcArrow from '@/assets/new-icons/general/ic_arrow-left.svg';
 import styles from './styles.module.scss';
 
 const Main: FC = observer(() => {
+  const { id, slug } = useParams();
   const store = useStore();
 
-  const courses = [
-    {
-      title: 'dasdas dasd a',
-      id: 1,
-      slug: 'sdsdsdsd-sdadaa',
-      cover:
-        'https://bim-portal.ru/wp-content/uploads/2023/05/daf255b6b80a-min-1024x768.jpg',
-      count_lessons: 15,
-      author: {
-        id: 2,
-        username: 'Dmitriy',
-      },
-    },
-    {
-      title: 'dasdas dasd a',
-      id: 1,
-      slug: 'sdsdsdsd-sdadaa',
-      cover:
-        'https://bim-portal.ru/wp-content/uploads/2023/05/daf255b6b80a-min-1024x768.jpg',
-      count_lessons: 15,
-      author: {
-        id: 2,
-        username: 'Dmitriy',
-      },
-    },
-    {
-      title: 'dasdas dasd a',
-      id: 1,
-      slug: 'sdsdsdsd-sdadaa',
-      cover:
-        'https://bim-portal.ru/wp-content/uploads/2023/05/daf255b6b80a-min-1024x768.jpg',
-      count_lessons: 15,
-      author: {
-        id: 2,
-        username: 'Dmitriy',
-      },
-    },
-    {
-      title: 'dasdas dasd a',
-      id: 1,
-      slug: 'sdsdsdsd-sdadaa',
-      cover:
-        'https://bim-portal.ru/wp-content/uploads/2023/05/daf255b6b80a-min-1024x768.jpg',
-      count_lessons: 15,
-      author: {
-        id: 2,
-        username: 'Dmitriy',
-      },
-    },
-    {
-      title: 'dasdas dasd a',
-      id: 1,
-      slug: 'sdsdsdsd-sdadaa',
-      cover:
-        'https://bim-portal.ru/wp-content/uploads/2023/05/daf255b6b80a-min-1024x768.jpg',
-      count_lessons: 15,
-      author: {
-        id: 2,
-        username: 'Dmitriy',
-      },
-    },
-  ];
+  const [course, setCourse] = useState<TCourse>(null);
+  const [courseBlocks, setCourseBlocks] = useState<TCourseBlock[]>(null);
 
-  const course: TCourse = {
-    title: 'dasdas dasd a',
-    id: 1,
-    slug: 'sdsdsdsd-sdadaa',
-    cover:
-      'https://bim-portal.ru/wp-content/uploads/2023/05/daf255b6b80a-min-1024x768.jpg',
-    count_lessons: 15,
-    author: {
-      id: 2,
-      username: 'Dmitriy',
-    },
-  };
+  useEffect(() => {
+    const getData = async () => {
+      const response = await CourseService.fetchCourseDesc(slug);
+      const responseBlocks = await CourseService.fetchCourseBlocks(slug);
+      if ('data' in response && 'data' in responseBlocks) {
+        setCourse(response.data);
+        setCourseBlocks(responseBlocks.data.blocks);
+      }
+    };
+    getData();
+  }, [id, slug]);
 
   const router = useRouter();
 
@@ -110,15 +53,11 @@ const Main: FC = observer(() => {
         >
           Назад
         </LinkBtn>
-        <h2>Курсы по направлению</h2>
+
+        {course && <Header course={course} />}
       </div>
       <div className={styles.wrapper}>
-        <SearchPanel placeholder={'Название курса'} />
-        <div className={styles.list}>
-          {courses.map((course) => (
-            <Card course={course} key={course.slug} />
-          ))}
-        </div>
+        {courseBlocks && <Body blocks={courseBlocks} />}
       </div>
     </PageWrapper>
   );

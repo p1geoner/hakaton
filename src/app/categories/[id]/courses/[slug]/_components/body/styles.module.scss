@@ -1,0 +1,28 @@
+@import "@/assets/styles/templates";
+
+.accordionsList {
+	@include new-flex-col-gap(2px);
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.blockTitle {
+	@extend %new-h4;
+}
+
+.header {
+	@include new-flex-gap(24px);
+
+	p {
+		@extend %new-extra-small;
+		background-color: var(--blue-extra-light);
+		padding: 4px 8px;
+		border-radius: 100px;
+		align-content: center;
+	}
+}
+
+.blockRows {
+	@include new-flex-col-gap(24px);
+	padding: 12px 24px;
+}

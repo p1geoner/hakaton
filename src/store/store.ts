@@ -2,7 +2,6 @@ import { makeAutoObservable } from 'mobx';
 
 import { Auth } from './auth/auth';
 
-import { TUserResponse } from '@/types/entities/IUser';
 import { IAccountStore } from '@/types/stores/IAccountStore';
 import { IAuthStore } from '@/types/stores/IAuthStore';
 import { IRootStore } from '@/types/stores/IRootStore';
@@ -18,12 +17,6 @@ class Store implements IRootStore {
     this.account = null;
 
     makeAutoObservable(this);
-  }
-
-  setAccountStore(user: TUserResponse | null) {
-    if (user === null) {
-      return (this.account = null);
-    }
   }
 }
 

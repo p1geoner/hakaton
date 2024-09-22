@@ -1,4 +1,5 @@
 'use client';
+import { observer } from 'mobx-react-lite';
 import { useRouter } from 'next/navigation';
 
 import { ButtonTheme, ButtonVariant, LinkBtn } from '@/components/new-ui-kit';
@@ -11,7 +12,7 @@ import IcProfile from '@/assets/new-icons/general/ic_user.svg';
 
 import styles from './styles.module.scss';
 
-export const Header = () => {
+export const Header = observer(() => {
   const store = useStore();
   const authStore = store.auth;
   const router = useRouter();
@@ -37,6 +38,15 @@ export const Header = () => {
         >
           О нас
         </LinkBtn>
+        {authStore?.user?.groups[0] && (
+          <LinkBtn
+            theme={ButtonTheme.BLACK}
+            variant={ButtonVariant.INLINE}
+            href={staticLinks.createCourse}
+          >
+            Создание курса
+          </LinkBtn>
+        )}
       </div>
 
       {!authStore.isAuth ? (
@@ -58,4 +68,4 @@ export const Header = () => {
       )}
     </header>
   );
-};
+});

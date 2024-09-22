@@ -18,7 +18,7 @@ const makeRequest = <Type>({
   if (authToken) {
     const token = Cookies.get('auth_token');
 
-    headers.authorization = `Bearer ${token}`;
+    headers.authorization = `Token ${token}`;
   }
 
   return axios

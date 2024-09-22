@@ -8,7 +8,6 @@ const MapField = dynamic(() => import('./map-field/MapField'), { ssr: false });
 export { ASelect, MapField, Search };
 export * from './validation';
 export * from './number-field';
-export * from './address-field';
 export * from './block';
 export * from './phone-field';
 export * from './letter-field';

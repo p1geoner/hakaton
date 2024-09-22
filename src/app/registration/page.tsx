@@ -2,22 +2,30 @@
 
 import { useFormik } from 'formik';
 import { observer } from 'mobx-react-lite';
+import { useRouter } from 'next/navigation';
 import { FC, useState } from 'react';
 
-import { AsyncButton } from '@/components/new-form';
 import { PageWrapper } from '@/components/new-layouts';
 import { FormWrapper } from '@/components/new-layouts/wrappers/form-wrapper';
-import { TextField } from '@/components/new-ui-kit';
+import {
+  Button,
+  ButtonTheme,
+  LinkBtn,
+  TextField,
+} from '@/components/new-ui-kit';
 
 import { useStore } from '@/hooks/useStore';
 
 import { globalFormikConfig } from '@/config/globalFormikConfig';
+import { staticLinks } from '@/config/routingLinks';
 
 import styles from './styles.module.scss';
 
 const RegistrationPage: FC = observer(() => {
   const store = useStore();
   const authStore = store.auth;
+
+  const router = useRouter();
 
   const [isRequesting, setIsRequesting] = useState(false);
 
@@ -28,13 +36,15 @@ const RegistrationPage: FC = observer(() => {
       password: '',
     },
     onSubmit: async (values) => {
-      const user = {
-        username: values.username,
-        password: values.password,
-      };
+      const userFormData = new FormData();
+      userFormData.set('username', values.username);
+      userFormData.set('password', values.password);
 
       setIsRequesting(true);
-      const response = await authStore.authorization(user);
+      const response = await authStore.registration(userFormData);
+      if (response.status === 200) {
+        router.push(staticLinks.authorization);
+      }
       setIsRequesting(false);
 
       authStore.setStatus(null);
@@ -59,13 +69,19 @@ const RegistrationPage: FC = observer(() => {
           onChange={formik.handleChange}
           placeholder=' '
         />
-        <AsyncButton
-          isLoading={isRequesting}
-          type='submit'
+        <Button
+          onClick={() => formik.handleSubmit()}
           className={styles.submitButton}
         >
           Войти в систему
-        </AsyncButton>
+        </Button>
+        <LinkBtn
+          theme={ButtonTheme.BLUE_OUTLINE}
+          href={staticLinks.authorization}
+          className={styles.submitButton}
+        >
+          Авторизация
+        </LinkBtn>
       </FormWrapper>
     </PageWrapper>
   );

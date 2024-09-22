@@ -1,0 +1,22 @@
+@import '@/assets/styles/templates';
+.main {
+	@extend %main;
+	@include new-flex-col-gap(60px);
+	background: #F9F9F9;
+	padding-bottom: 120px;
+}
+
+.submitButton {
+	width: 100% !important;
+}
+
+.form {
+	@include new-flex-col-gap(24px);
+	max-width: 580px;
+	width: 100%;
+	align-self: center;
+
+	h3 {
+		@extend %new-h3;
+	}
+}

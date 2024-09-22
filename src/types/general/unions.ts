@@ -69,7 +69,7 @@ export type TSituation<Status> = Status extends 'Специалист'
 
 export type TSimpleEntity = {
   id: number;
-  name: string;
+  title: string;
 };
 
 export type TOwner = {

@@ -157,6 +157,11 @@ $br_hundred: 100px;
 	color: var(--black-default);
 }
 
+%new-extra-small {
+	font-size: 12px;
+	font-weight: 400;
+	color: var(--grey-light);
+}
 
 %subtitle {
 	font-weight: 600;

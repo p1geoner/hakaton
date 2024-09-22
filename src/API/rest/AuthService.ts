@@ -2,25 +2,20 @@ import Cookies from 'js-cookie';
 
 import makeRequest from '@/API/makeRequest';
 
-import {
-  CheckAuthResponse,
-  LoginResponse,
-  RegistrationResponse,
-} from '@/types/api/IAuthResponse';
-import { TUserLogin } from '@/types/entities/IUser';
+import { CheckAuthResponse } from '@/types/api/IAuthResponse';
 
 class AuthService {
-  registration(user: TUserLogin) {
-    return makeRequest<RegistrationResponse>({
+  registration(user: FormData) {
+    return makeRequest<CheckAuthResponse>({
       url: 'api/users/',
       method: 'post',
       data: user,
     });
   }
 
-  authorization(user: TUserLogin) {
-    return makeRequest<LoginResponse>({
-      url: 'api/users/token',
+  authorization(user: FormData) {
+    return makeRequest<{ token: string }>({
+      url: 'api/users/token/',
       method: 'post',
       data: user,
     });

@@ -37,6 +37,10 @@ const nextConfig = {
 				destination: '/authorization',
 			},
 			{
+				source: '/registraciya',
+				destination: '/registration',
+			},
+			{
 				source: '/kategorii',
 				destination: '/categories',
 			},
@@ -49,12 +53,16 @@ const nextConfig = {
 				destination: '/categories/:path*',
 			},
 			{
-				source: '/kategorii/:path*/kyrsi',
-				destination: '/categories/:path*/kyrsi',
+				source: '/kategorii/:id*/kyrsi',
+				destination: '/categories/:id*/courses',
 			},
 			{
-				source: '/kategorii/:path*/kyrsi/:path*',
-				destination: '/categories/:path*/kyrsi/:path*',
+				source: '/kategorii/:id*/kyrsi/:slug*',
+				destination: '/categories/:id*/courses/:slug*',
+			},
+			{
+				source: '/profil',
+				destination: '/profile',
 			},
 		];
 	},

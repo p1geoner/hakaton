@@ -6,13 +6,17 @@ export const staticLinks = {
   registration: '/registraciya',
   courses: '/kyrsi',
   course: '/kyrsi/:slug',
-  categories: '/kategorii',
-  category: '/kategorii/:id',
+  createCourse: '/course-create',
+  categories: '/categories',
+  category: '/categories/:id',
   about: '/o-nas',
 };
 
 export const dynamicLinks = {
-  course: ({ categoryId, slug }) => `/kategorii/${categoryId}/kyrsi/${slug}`,
-  category: (id: string) => `/kategorii/${id}`,
+  course: ({ categoryId, slug }) => `/categories/${categoryId}/courses/${slug}`,
+  lesson: ({ categoryId, slug, id }) =>
+    `/categories/${categoryId}/courses/${slug}/lessons/${id}`,
+  category: (id: string) => `/categories/${id}`,
+
   subCategory: (id: string) => `/categories/${id}`,
 };

@@ -1,10 +1,8 @@
 import { TAuthStatuses, TRegStatuses } from '@/hooks/types';
 
-import { APIError, APIResponse } from '@/types/api/IAPI';
+import { APIResponse } from '@/types/api/IAPI';
 import { LoginResponse, RegistrationResponse } from '@/types/api/IAuthResponse';
-import { TRegistrationUser } from '@/types/entities/IRegistration';
-import { TUserLogin } from '@/types/entities/IUser';
-import { Camelize } from '@/types/general/camelize';
+import { TUser } from '@/types/entities/IUser';
 import { TRestoreStates } from '@/types/general/unions';
 import { IRootStore } from '@/types/stores/IRootStore';
 
@@ -15,6 +13,7 @@ export interface IAuthStore {
   isAuth: boolean | null;
   error: string | null;
   status: TAuthStatuses | TRegStatuses | null;
+  user: TUser | null;
   isLoading: boolean;
 
   hiddenRestoreEmail: string;
@@ -25,13 +24,9 @@ export interface IAuthStore {
   setError: (error: string | null) => void;
   setRestoreState: (state: TRestoreStates) => void;
   setRestoreEmail: (email: string) => void;
-  serializeRegistrationErrors: (
-    course: APIError['errors']
-  ) => Camelize<APIError['errors']>;
 
-  registration: (user: TRegistrationUser) => APIResponse<RegistrationResponse>;
-  authorization: (user: TUserLogin) => APIResponse<LoginResponse>;
+  registration: (user: FormData) => APIResponse<RegistrationResponse>;
+  authorization: (user: FormData) => APIResponse<LoginResponse>;
   logout: () => void;
   checkAuth: () => void;
-  checkAdminAuth: () => void;
 }

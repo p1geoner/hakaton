@@ -1,0 +1,11 @@
+@import '@/assets/styles/templates';
+
+.wrapper {
+	@include new-flex-col-gap(24px);
+
+	padding: 24px;
+	border-radius: 12px;
+	border: 1px solid var(--grey-light);
+
+
+}

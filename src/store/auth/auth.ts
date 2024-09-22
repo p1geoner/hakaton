@@ -3,8 +3,7 @@ import { makeAutoObservable } from 'mobx';
 
 import { TAuthStatuses, TRegStatuses } from '@/hooks/types';
 
-import { APIError } from '@/types/api/IAPI';
-import { TUser, TUserLogin } from '@/types/entities/IUser';
+import { TUser } from '@/types/entities/IUser';
 import { TRestoreStates } from '@/types/general/unions';
 import { IAuthStore } from '@/types/stores/IAuthStore';
 import { IRootStore } from '@/types/stores/IRootStore';
@@ -18,7 +17,7 @@ export class Auth implements IAuthStore {
   isAuth: boolean | null;
   error: string | null;
   status: TAuthStatuses | TRegStatuses | null;
-  user: TUserLogin | null;
+  user: TUser | null;
   isLoading: boolean;
 
   constructor(rootStore: IRootStore) {
@@ -70,51 +69,13 @@ export class Auth implements IAuthStore {
     this.restoreEmail = email;
   }
 
-  serializeRegistrationErrors(errors: APIError['errors']) {
-    return {
-      email: errors.email,
-      password: errors.password,
-      passwordConfirmation: errors.password_confirmation,
-      role: errors.role,
-      firstName: errors.first_name,
-      lastName: errors.last_name,
-      patronymicName: errors.patronymic_name,
-      sex: errors.sex,
-      birthday: errors.birthday,
-      city: errors.city,
-      phone: errors.phone,
-      employerName: errors.employer_name,
-      employerAddress: errors.employer_address,
-      citizenship: errors.citizenship,
-      status: errors.status_id,
-      situation: errors.situation,
-      phoneOfTheLegalRepresentative: errors.phone_of_the_legal_representative,
-      nameOfTheLegalRepresentative: errors.name_of_the_legal_representative,
-    };
-  }
-
-  async registration(user: TRegistrationUser) {
+  async registration(user: FormData) {
     const response = await AuthService.registration(user);
-
-    if ('data' in response) {
-      const data = response.data;
-
-      Cookies.set('auth_token', data.token);
-
-      this.setStatus('registration-success');
-      this.setAuth(true);
-    } else if ('errors' in response) {
-      if (response.errors?.email?.[0] !== 'Email должен быть уникальным') {
-        this.setStatus('registration-fail');
-      } else {
-        this.setStatus('registration-already');
-      }
-    }
 
     return response;
   }
 
-  async authorization(user: TUserLogin) {
+  async authorization(user: FormData) {
     const response = await AuthService.authorization(user);
 
     if ('data' in response) {
@@ -155,7 +116,7 @@ export class Auth implements IAuthStore {
     if ('data' in response) {
       this.setAuth(true);
 
-      const user = response.data.user;
+      const user = response.data;
 
       this.setUser(user);
     } else {

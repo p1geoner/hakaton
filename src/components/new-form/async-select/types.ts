@@ -1,4 +1,4 @@
-import { TPromptType, TSelectOption } from '@/types/general/unions';
+import { TSelectOption } from '@/types/general/unions';
 
 export type TASelectProps = {
   type: TFetchType;
@@ -10,14 +10,15 @@ export type TASelectProps = {
   placeholder?: string;
   idsList?: number[];
   id?: string;
-  typePrompt?: TPromptType;
+  typePrompt?: any;
   optionsProp?: TSelectOption[];
   setOptionsProp?: (option: TSelectOption[] | []) => void;
 };
 
 export type TFetchType =
-  | 'allSpheres'
-  | 'years'
+  | 'category'
+  | 'course'
+  | 'block'
   | 'specialities'
   | 'professional_qualities'
   | 'personal_qualities'

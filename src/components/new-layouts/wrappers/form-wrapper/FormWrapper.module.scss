@@ -11,7 +11,7 @@
 }
 
 .wrapper {
-  @include flex-col-gap(60px);
+  @include new-flex-col-gap(30px);
   @include wrapper(0px);
   max-width: 580px;
   background-color: var(--white-background);

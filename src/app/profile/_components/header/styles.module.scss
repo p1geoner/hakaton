@@ -1,0 +1,15 @@
+@import "@/assets/styles/templates";
+
+.header {
+	@include new-flex-gap(32px);
+	justify-content: space-between;
+	align-self: center;
+
+	max-width: 1000px;
+	width: 100%;
+
+	background-color: var(--blue-extra-light);
+	border-radius: 12px;
+	padding: 24px;
+
+}

@@ -15,26 +15,32 @@ export const Card = ({
   categoryId,
 }: {
   course: TCourse;
-  categoryId: string;
+  categoryId?: string;
 }) => {
   return (
     <Link
       href={dynamicLinks.course({ categoryId: categoryId, slug: course.slug })}
       className={styles.card}
     >
-      <img src={course.cover} alt='' />
+      <img
+        src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${course.cover}`}
+        alt=''
+      />
       <div className={styles.description}>
         <h3>{course.title}</h3>
         <div className={styles.aditionalInfo}>
           <p>{course.author.username}</p>
-          <p>{course.count_lessons}</p>
+          <p>кол-во уроков: {course.count_lessons}</p>
         </div>
       </div>
       <LinkBtn
         variant={ButtonVariant.ROUNDED}
         className={styles.button}
         icon={{ type: 'fill', icon: <IcSend /> }}
-        href={dynamicLinks.course(course.slug)}
+        href={dynamicLinks.course({
+          categoryId: categoryId,
+          slug: course.slug,
+        })}
       >
         Перейти
       </LinkBtn>

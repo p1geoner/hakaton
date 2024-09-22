@@ -2,22 +2,30 @@
 
 import { useFormik } from 'formik';
 import { observer } from 'mobx-react-lite';
+import { useRouter } from 'next/navigation';
 import { FC, useState } from 'react';
 
-import { AsyncButton } from '@/components/new-form';
 import { PageWrapper } from '@/components/new-layouts';
 import { FormWrapper } from '@/components/new-layouts/wrappers/form-wrapper';
-import { TextField } from '@/components/new-ui-kit';
+import {
+  Button,
+  ButtonTheme,
+  LinkBtn,
+  TextField,
+} from '@/components/new-ui-kit';
 
 import { useStore } from '@/hooks/useStore';
 
 import { globalFormikConfig } from '@/config/globalFormikConfig';
+import { staticLinks } from '@/config/routingLinks';
 
 import styles from './styles.module.scss';
 
 const AuthorizationPage: FC = observer(() => {
   const store = useStore();
   const authStore = store.auth;
+
+  const router = useRouter();
 
   const [isRequesting, setIsRequesting] = useState(false);
 
@@ -28,14 +36,17 @@ const AuthorizationPage: FC = observer(() => {
       password: '',
     },
     onSubmit: async (values) => {
-      const user = {
-        username: values.username,
-        password: values.password,
-      };
+      const userFormData = new FormData();
+      userFormData.set('username', values.username);
+      userFormData.set('password', values.password);
 
       setIsRequesting(true);
-      const response = await authStore.authorization(user);
-      setIsRequesting(false);
+      const response = await authStore.authorization(userFormData);
+
+      if (response.status) {
+        setIsRequesting(false);
+        router.push(staticLinks.main);
+      }
 
       authStore.setStatus(null);
     },
@@ -48,7 +59,7 @@ const AuthorizationPage: FC = observer(() => {
           name='username'
           label='Имя пользователя'
           value={formik.values.username}
-          onChange={formik.handleChange}
+          onChange={(e) => formik.setFieldValue('username', e.target.value)}
           placeholder=' '
         />
         <TextField
@@ -56,16 +67,22 @@ const AuthorizationPage: FC = observer(() => {
           label='Пароль'
           type='password'
           value={formik.values.password}
-          onChange={formik.handleChange}
+          onChange={(e) => formik.setFieldValue('password', e.target.value)}
           placeholder=' '
         />
-        <AsyncButton
-          isLoading={isRequesting}
-          type='submit'
+        <Button
+          onClick={() => formik.handleSubmit()}
           className={styles.submitButton}
         >
           Войти в систему
-        </AsyncButton>
+        </Button>
+        <LinkBtn
+          theme={ButtonTheme.BLUE_OUTLINE}
+          href={staticLinks.registration}
+          className={styles.submitButton}
+        >
+          Регистрация
+        </LinkBtn>
       </FormWrapper>
     </PageWrapper>
   );
